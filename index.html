@@ -169,6 +169,71 @@
 
       <div class="body-wrap">
   
+    <article id="post-linux配置curses库" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/07/linux配置curses库/" class="article-date">
+  	<time datetime="2016-03-07T10:53:49.000Z" itemprop="datePublished">2016-03-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/07/linux配置curses库/">linux配置curses库</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>方式一：直接用apt-get安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install libncurses5-dev</span><br></pre></td></tr></table></figure></p>
+<p>方式二：使用压缩文件安装</p>
+<p>首先下载curses压缩文件:<a href="http://ftp.gnu.org/gnu/ncurses/" target="_blank" rel="external">http://ftp.gnu.org/gnu/ncurses/</a><br><a href="http://ftp.gnu.org/gnu/ncurses/" target="_blank" rel="external">Click me to download</a><br>网页内容大致如下，一般选择*.tar.gz下载就可以了<br><img src="/／img/curses.png" alt="图片名称"></p>
+<p>然后使用Teminal进入目录，假设已经下载ncurses-6.0.tar.gz到Download目录下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> Download</span><br></pre></td></tr></table></figure></p>
+<p>解压<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar zxvf ncurses-<span class="number">6.0</span>.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>解压后会产生一个ncurses-6.0目录，cd到此目录进行配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ncurses-<span class="number">6.0</span></span><br><span class="line">$ ./configure</span><br></pre></td></tr></table></figure></p>
+<p>编译库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make</span><br></pre></td></tr></table></figure></p>
+<p>安装,需要root权限，即需要密码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo make install</span><br></pre></td></tr></table></figure></p>
+<p>最后，可以用man initscr来测试是否已经配置完成<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ man initscr</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/note/">note</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-adb常用shell命令" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
