@@ -4,17 +4,24 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Tag: android | Zhiheng Tao</title>
+  <title>activity lanchmode | Zhiheng Tao</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Smile every day">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Zhiheng Tao">
-<meta property="og:url" content="http://yoursite.com/tags/android/index.html">
+  <meta name="description" content="activity有四种lanchmode:1.standard2.singleTop3.singleTask4.singleInstance
+＃#standard标准模式，每次都会startActivity都会new一个新的实例
+＃#singleTop如果调用的目标Activity已经位于调用者的Task的栈顶，则不创建新实例，而是使用当前的这个Activity实例，并调用这个实例的onNewIn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="activity lanchmode">
+<meta property="og:url" content="http://yoursite.com/2016/04/13/activity-lanchmode/index.html">
 <meta property="og:site_name" content="Zhiheng Tao">
-<meta property="og:description" content="Smile every day">
+<meta property="og:description" content="activity有四种lanchmode:1.standard2.singleTop3.singleTask4.singleInstance
+＃#standard标准模式，每次都会startActivity都会new一个新的实例
+＃#singleTop如果调用的目标Activity已经位于调用者的Task的栈顶，则不创建新实例，而是使用当前的这个Activity实例，并调用这个实例的onNewIn">
+<meta property="og:updated_time" content="2016-04-13T03:39:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zhiheng Tao">
-<meta name="twitter:description" content="Smile every day">
+<meta name="twitter:title" content="activity lanchmode">
+<meta name="twitter:description" content="activity有四种lanchmode:1.standard2.singleTop3.singleTask4.singleInstance
+＃#standard标准模式，每次都会startActivity都会new一个新的实例
+＃#singleTop如果调用的目标Activity已经位于调用者的Task的栈顶，则不创建新实例，而是使用当前的这个Activity实例，并调用这个实例的onNewIn">
   
     <link rel="alternative" href="/atom.xml" title="Zhiheng Tao" type="application/atom+xml">
   
@@ -167,84 +174,114 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-activity-lanchmode" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/13/activity-lanchmode/" class="archive-article-date">
-  	<time datetime="2016-04-13T03:32:48.000Z" itemprop="datePublished">Apr 13</time>
+    <div class="article-meta">
+      <a href="/2016/04/13/activity-lanchmode/" class="article-date">
+  	<time datetime="2016-04-13T03:32:48.000Z" itemprop="datePublished">2016-04-13</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/13/activity-lanchmode/">activity lanchmode</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      activity lanchmode
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
 	</div>
 
-          
+        
 
-        </div>
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+      </div>
+      
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/09/android进程通信/" class="archive-article-date">
-  	<time datetime="2016-04-09T07:22:27.000Z" itemprop="datePublished">Apr 9</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/09/android进程通信/">android进程通信</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>activity有四种lanchmode:<br>1.standard<br>2.singleTop<br>3.singleTask<br>4.singleInstance</p>
+<p>＃#standard<br>标准模式，每次都会startActivity都会new一个新的实例</p>
+<p>＃#singleTop<br>如果调用的目标Activity已经位于调用者的Task的栈顶，则不创建新实例，而是使用当前的这个Activity实例，并调用这个实例的onNewIntent方法<br>场景:接受通知启动显示的activity</p>
+<p>＃#singleTask<br>Activity在系统中只会存在一个实例。如果这个实例已经存在，intent就会通过onNewIntent传递到这个Activity,同时清空activity所在栈上其他activity(正常生命周期回调清除)。否则新的Activity实例被创建<br>场景:入口activity</p>
+<p>＃#singleInstance<br>和singleTask差不多，因为他们在系统中都只有一份实例。唯一不同的就是存放singleInstance Activity实例的Task只能存放一个该模式的Activity实例<br>场景:适合与程序分离，不用在中间的activity，如闹钟提醒相对与闹钟设置分离</p>
+<p>＃＃附<br>＃taskAffinity<br>决定能够启动一个新的task时，是否会新建task。在启动singleTask的activity时和由singleInstance的activity启动其他activity时，能够启动新的task，是否会新建取决于是否存在与被启动activity的taskAffinity属性相同的task,有则使用此task,否则新建task。taskAffinity默认值为包名</p>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/04/09/android进程通信/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">android进程通信</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="activity-lanchmode" data-title="activity lanchmode" data-url="http://yoursite.com/2016/04/13/activity-lanchmode/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -270,9 +307,9 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false
 	}
