@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="activity A调用activity B配置activity B12345&amp;lt;intent-filter&amp;gt;          &amp;lt;action android:name=&quot;net.blogjava.mobile.MYACTION&quot; /&amp;gt;      &amp;lt;data android:scheme=&quot;info&quot; /&amp;gt;                  &amp;lt;catego">
+<meta name="description" content="android常见几种进程通信方式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="android进程通信">
 <meta property="og:url" content="http://yoursite.com/2016/04/09/android进程通信/index.html">
 <meta property="og:site_name" content="Zhiheng Tao">
-<meta property="og:description" content="activity A调用activity B配置activity B12345&amp;lt;intent-filter&amp;gt;          &amp;lt;action android:name=&quot;net.blogjava.mobile.MYACTION&quot; /&amp;gt;      &amp;lt;data android:scheme=&quot;info&quot; /&amp;gt;                  &amp;lt;catego">
-<meta property="og:updated_time" content="2016-04-13T03:47:57.000Z">
+<meta property="og:description" content="android常见几种进程通信方式">
+<meta property="og:updated_time" content="2016-08-16T09:09:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="android进程通信">
-<meta name="twitter:description" content="activity A调用activity B配置activity B12345&amp;lt;intent-filter&amp;gt;          &amp;lt;action android:name=&quot;net.blogjava.mobile.MYACTION&quot; /&amp;gt;      &amp;lt;data android:scheme=&quot;info&quot; /&amp;gt;                  &amp;lt;catego">
+<meta name="twitter:description" content="android常见几种进程通信方式">
 
 
 
@@ -276,7 +276,9 @@
       
 
       
-        <h1 id="activity_A_u8C03_u7528activity_B"><a href="#activity_A_u8C03_u7528activity_B" class="headerlink" title="activity A调用activity B"></a>activity A调用activity B</h1><p>配置activity B<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span>      </span><br><span class="line">    <span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"net.blogjava.mobile.MYACTION"</span> /&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="title">data</span> <span class="attribute">android:scheme</span>=<span class="value">"info"</span> /&gt;</span>              </span><br><span class="line">    <span class="tag">&lt;<span class="title">category</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.category.DEFAULT"</span> /&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+        <p>android常见几种进程通信方式</p>
+<a id="more"></a>
+<h1 id="activity_A_u8C03_u7528activity_B"><a href="#activity_A_u8C03_u7528activity_B" class="headerlink" title="activity A调用activity B"></a>activity A调用activity B</h1><p>配置activity B<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span>      </span><br><span class="line">    <span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"net.blogjava.mobile.MYACTION"</span> /&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="title">data</span> <span class="attribute">android:scheme</span>=<span class="value">"info"</span> /&gt;</span>              </span><br><span class="line">    <span class="tag">&lt;<span class="title">category</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.category.DEFAULT"</span> /&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>‘<data>‘标签用于匹配uri，scheme制定协议，即uri首部info://Uri<br>A启动B<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">intent = <span class="keyword">new</span> Intent(<span class="string">"net.blogjava.mobile.MYACTION"</span>, Uri  </span><br><span class="line">        .parse(<span class="string">"info://调用其他应用程序的Activity"</span>));  </span><br><span class="line"><span class="comment">//  传递数据  </span></span><br><span class="line">intent.putExtra(<span class="string">"value"</span>, <span class="string">"调用成功"</span>);  </span><br><span class="line">startActivityForResult(intent, <span class="number">1</span>);</span><br></pre></td></tr></table></figure></data></p>
 <h1 id="contentProvider"><a href="#contentProvider" class="headerlink" title="contentProvider"></a>contentProvider</h1><p>创建一个ContentProvider子类<br>配置provider<br>调用contentProvider</p>
 <h1 id="broadcast"><a href="#broadcast" class="headerlink" title="broadcast"></a>broadcast</h1><p>sendBroadcast() BroadReceiver-&gt;onReceive()</p>
@@ -395,7 +397,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
