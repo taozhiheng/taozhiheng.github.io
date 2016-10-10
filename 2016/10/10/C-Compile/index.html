@@ -1,0 +1,585 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="gcc g++ ar等基本命令,以及如何生成和使用动/静态库(Linux/Windows)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C Compile">
+<meta property="og:url" content="http://yoursite.com/2016/10/10/C-Compile/index.html">
+<meta property="og:site_name" content="Zhiheng Tao">
+<meta property="og:description" content="gcc g++ ar等基本命令,以及如何生成和使用动/静态库(Linux/Windows)">
+<meta property="og:updated_time" content="2016-10-10T09:44:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C Compile">
+<meta name="twitter:description" content="gcc g++ ar等基本命令,以及如何生成和使用动/静态库(Linux/Windows)">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/10/C-Compile/"/>
+
+  <title> C Compile | Zhiheng Tao </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Zhiheng Tao</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Every day is special</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                C Compile
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-10T16:45:05+08:00" content="2016-10-10">
+              2016-10-10
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>gcc g++ ar等基本命令,以及如何生成和使用动/静态库(Linux/Windows)</p>
+<a id="more"></a>
+<h1 id="C_Compile"><a href="#C_Compile" class="headerlink" title="C Compile"></a>C Compile</h1><hr>
+<p>初学时总是依赖与各种ide编译c项目，想着自己了解一下编译的过程。学习过程中，有些问题很困惑，纠结了很久才明白，故此总结一下：</p>
+<blockquote>
+<ul>
+<li>gcc g++编译</li>
+<li>创建动态库</li>
+<li>创建静态库</li>
+</ul>
+</blockquote>
+<hr>
+<h1 id="gcc_g++_u7F16_u8BD1"><a href="#gcc_g++_u7F16_u8BD1" class="headerlink" title="gcc g++编译"></a>gcc g++编译</h1><h2 id="u6CE8_uFF1A"><a href="#u6CE8_uFF1A" class="headerlink" title="注："></a>注：</h2><blockquote>
+<ul>
+<li>c文件编译使用gcc</li>
+<li>cpp文件编译使用g++</li>
+</ul>
+</blockquote>
+<h2 id="u9884_u5904_u7406"><a href="#u9884_u5904_u7406" class="headerlink" title="预处理"></a>预处理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o test.i -E test.c</span><br></pre></td></tr></table></figure>
+<h2 id="u7F16_u8BD1_u4E3A_u6C47_u7F16_u4EE3_u7801"><a href="#u7F16_u8BD1_u4E3A_u6C47_u7F16_u4EE3_u7801" class="headerlink" title="编译为汇编代码"></a>编译为汇编代码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o test.s -S test.i</span><br></pre></td></tr></table></figure>
+<h2 id="u6C47_u7F16_u4E3A_u76EE_u6807_u6587_u4EF6"><a href="#u6C47_u7F16_u4E3A_u76EE_u6807_u6587_u4EF6" class="headerlink" title="汇编为目标文件"></a>汇编为目标文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o test.o -c test.s</span><br></pre></td></tr></table></figure>
+<h2 id="u8FDE_u63A5_u4E3A_u53EF_u6267_u884C_u6587_u4EF6"><a href="#u8FDE_u63A5_u4E3A_u53EF_u6267_u884C_u6587_u4EF6" class="headerlink" title="连接为可执行文件"></a>连接为可执行文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o <span class="built_in">test</span> test.o</span><br></pre></td></tr></table></figure>
+<h2 id="u63A8_u8350_u7F16_u8BD1_u65B9_u5F0F"><a href="#u63A8_u8350_u7F16_u8BD1_u65B9_u5F0F" class="headerlink" title="推荐编译方式"></a>推荐编译方式</h2><p>可以使用一条指令完成预处理、编译、汇编过程，可以使用一条指令完成预处理、编译、汇编、连接全部过程。</p>
+<h3 id="u9884_u5904_u7406_u3001_u7F16_u8BD1_u3001_u6C47_u7F16_28_u6709_u591A_u4E2A_u6E90_u6587_u4EF6_u65F6_u63A8_u8350_u6B64_u65B9_u5F0F_uFF0C_u589E_u91CF_u7F16_u8BD1_uFF0C_u800C_u975E_u5168_u91CF_u7F16_u8BD1_29"><a href="#u9884_u5904_u7406_u3001_u7F16_u8BD1_u3001_u6C47_u7F16_28_u6709_u591A_u4E2A_u6E90_u6587_u4EF6_u65F6_u63A8_u8350_u6B64_u65B9_u5F0F_uFF0C_u589E_u91CF_u7F16_u8BD1_uFF0C_u800C_u975E_u5168_u91CF_u7F16_u8BD1_29" class="headerlink" title="预处理、编译、汇编(有多个源文件时推荐此方式，增量编译，而非全量编译)"></a>预处理、编译、汇编(有多个源文件时推荐此方式，增量编译，而非全量编译)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o test.o -c test.c</span><br></pre></td></tr></table></figure>
+<h3 id="u9884_u5904_u7406_u3001_u7F16_u8BD1_u3001_u6C47_u7F16_u3001_u8FDE_u63A5_28_u4EC5_u6709_u4E00_u4E2A_u6E90_u6587_u4EF6_u65F6_u63A8_u8350_u6B64_u65B9_u5F0F_29"><a href="#u9884_u5904_u7406_u3001_u7F16_u8BD1_u3001_u6C47_u7F16_u3001_u8FDE_u63A5_28_u4EC5_u6709_u4E00_u4E2A_u6E90_u6587_u4EF6_u65F6_u63A8_u8350_u6B64_u65B9_u5F0F_29" class="headerlink" title="预处理、编译、汇编、连接(仅有一个源文件时推荐此方式)"></a>预处理、编译、汇编、连接(仅有一个源文件时推荐此方式)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o <span class="built_in">test</span> test.c</span><br></pre></td></tr></table></figure>
+<h2 id="u591A_u6587_u4EF6_u7F16_u8BD1"><a href="#u591A_u6587_u4EF6_u7F16_u8BD1" class="headerlink" title="多文件编译"></a>多文件编译</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gcc -c <span class="built_in">test</span>1.c -o <span class="built_in">test</span>1.o</span><br><span class="line">gcc -c <span class="built_in">test</span>2.c -o <span class="built_in">test</span>2.o</span><br><span class="line">gcc <span class="built_in">test</span>1.o <span class="built_in">test</span>2.o -o <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+<h2 id="u8FDE_u63A5_u5916_u90E8_u5E93"><a href="#u8FDE_u63A5_u5916_u90E8_u5E93" class="headerlink" title="连接外部库"></a>连接外部库</h2><p>首先完成预处理、编译、汇编，-I参数后用于添加额外的头文件搜索目录，可添加多个<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o <span class="built_in">test</span> -c -Iother_include1 -Iother_include2 test.c</span><br></pre></td></tr></table></figure></p>
+<h3 id="u8FDE_u63A5_u52A8_u6001_u5E93"><a href="#u8FDE_u63A5_u52A8_u6001_u5E93" class="headerlink" title="连接动态库"></a>连接动态库</h3><p><strong>Linux</strong>下，假设库文件为<strong>libpersist1.so</strong>和<strong>libpersist2.so</strong>，-L参数用于添加额外的库文件搜索目录，可添加多个，-l参数指出需要连接的库，linux下库文件一般命名都是libxxx.so，只需要写成-lxxx即可<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc  -o <span class="built_in">test</span> test.o -Lyour_lib1_dir/lib -Lyour_lib2_dir/lib -lpersist1 -lpersist2</span><br></pre></td></tr></table></figure></p>
+<p><strong>windows</strong>下，假设库文件为<strong>persist1.dll</strong>和<strong>persist2.dll</strong>，-L参数用于添加额外的库文件搜索目录，可添加多个，-l参数指出需要连接的库，windows下库文件一般命名都是xxx.dll，需要使用除后缀.dll的全名写成-lxxx即可<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc  -o <span class="built_in">test</span> test.o -Lyour_lib1_dir\lib -Lyour_lib2_dir\lib -lpersist1 -lpersist2</span><br></pre></td></tr></table></figure></p>
+<h3 id="u8FDE_u63A5_u9759_u6001_u5E93"><a href="#u8FDE_u63A5_u9759_u6001_u5E93" class="headerlink" title="连接静态库"></a>连接静态库</h3><p><strong>Linux</strong>下，假设库文件为<strong>libpersist.a</strong>，默认优先使用动态库，使用-static选项强制连接静态库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc  -o <span class="built_in">test</span> test.o -Lyour_lib_dir/lib -static -lpersist</span><br></pre></td></tr></table></figure></p>
+<p><strong>windows</strong>下，假设库文件为<strong>persist.lib</strong>，使用-Wl,-Bstatic选项连接静态库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc  -o <span class="built_in">test</span> test.o -Lyour_lib_dir\lib -Wl,-Bstatic -lpersist</span><br></pre></td></tr></table></figure></p>
+<p><strong>windows</strong>下，假设库文件为<strong>persist.lib</strong>，也可将静态库当作普通目标文件一起直接连接(linux下此方式未测试过，推测应该也是可以的)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o <span class="built_in">test</span> test.o your_lib_dir\persist.lib</span><br></pre></td></tr></table></figure></p>
+<h3 id="u6CE8_uFF1A-1"><a href="#u6CE8_uFF1A-1" class="headerlink" title="注："></a>注：</h3><p>连接库时最好将库写在原目标文件之后，顺序不对可能会连接出错。(之前在windows连接一直出错，发现是先后顺序不对~_~)</p>
+<hr>
+<h1 id="u521B_u5EFA_u52A8_u6001_u5E93_28persist-c_29"><a href="#u521B_u5EFA_u52A8_u6001_u5E93_28persist-c_29" class="headerlink" title="创建动态库(persist.c)"></a>创建动态库(persist.c)</h1><p>linux下libpersist.so,windows下libpersist.lib(也常常不加lib前缀:persist.lib)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc <span class="operator">-f</span>PIC -c persist.c -o persist.o</span><br><span class="line">gcc -shared persist.o -o libpersist.so</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="u521B_u5EFA_u9759_u6001_u5E93_28persist-c_29"><a href="#u521B_u5EFA_u9759_u6001_u5E93_28persist-c_29" class="headerlink" title="创建静态库(persist.c)"></a>创建静态库(persist.c)</h1><p>linux下libpersist.a,windows下libpersist.lib(也常常不加lib前缀:persist.lib)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc -c persist.c -o persist.o</span><br><span class="line">ar rcs libpersist.a persist.o</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/16/Java-Compile/" rel="next" title="Java Compile">
+                <i class="fa fa-chevron-left"></i> Java Compile
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Zhiheng Tao" />
+          <p class="site-author-name" itemprop="name">Zhiheng Tao</p>
+          <p class="site-description motion-element" itemprop="description">Smile every day</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C_Compile"><span class="nav-number">1.</span> <span class="nav-text">C Compile</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gcc_g++_u7F16_u8BD1"><span class="nav-number">2.</span> <span class="nav-text">gcc g++编译</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u6CE8_uFF1A"><span class="nav-number">2.1.</span> <span class="nav-text">注：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u9884_u5904_u7406"><span class="nav-number">2.2.</span> <span class="nav-text">预处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u7F16_u8BD1_u4E3A_u6C47_u7F16_u4EE3_u7801"><span class="nav-number">2.3.</span> <span class="nav-text">编译为汇编代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6C47_u7F16_u4E3A_u76EE_u6807_u6587_u4EF6"><span class="nav-number">2.4.</span> <span class="nav-text">汇编为目标文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u8FDE_u63A5_u4E3A_u53EF_u6267_u884C_u6587_u4EF6"><span class="nav-number">2.5.</span> <span class="nav-text">连接为可执行文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u63A8_u8350_u7F16_u8BD1_u65B9_u5F0F"><span class="nav-number">2.6.</span> <span class="nav-text">推荐编译方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u9884_u5904_u7406_u3001_u7F16_u8BD1_u3001_u6C47_u7F16_28_u6709_u591A_u4E2A_u6E90_u6587_u4EF6_u65F6_u63A8_u8350_u6B64_u65B9_u5F0F_uFF0C_u589E_u91CF_u7F16_u8BD1_uFF0C_u800C_u975E_u5168_u91CF_u7F16_u8BD1_29"><span class="nav-number">2.6.1.</span> <span class="nav-text">预处理、编译、汇编(有多个源文件时推荐此方式，增量编译，而非全量编译)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u9884_u5904_u7406_u3001_u7F16_u8BD1_u3001_u6C47_u7F16_u3001_u8FDE_u63A5_28_u4EC5_u6709_u4E00_u4E2A_u6E90_u6587_u4EF6_u65F6_u63A8_u8350_u6B64_u65B9_u5F0F_29"><span class="nav-number">2.6.2.</span> <span class="nav-text">预处理、编译、汇编、连接(仅有一个源文件时推荐此方式)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u591A_u6587_u4EF6_u7F16_u8BD1"><span class="nav-number">2.7.</span> <span class="nav-text">多文件编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u8FDE_u63A5_u5916_u90E8_u5E93"><span class="nav-number">2.8.</span> <span class="nav-text">连接外部库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u8FDE_u63A5_u52A8_u6001_u5E93"><span class="nav-number">2.8.1.</span> <span class="nav-text">连接动态库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u8FDE_u63A5_u9759_u6001_u5E93"><span class="nav-number">2.8.2.</span> <span class="nav-text">连接静态库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u6CE8_uFF1A-1"><span class="nav-number">2.8.3.</span> <span class="nav-text">注：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u521B_u5EFA_u52A8_u6001_u5E93_28persist-c_29"><span class="nav-number">3.</span> <span class="nav-text">创建动态库(persist.c)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u521B_u5EFA_u9759_u6001_u5E93_28persist-c_29"><span class="nav-number">4.</span> <span class="nav-text">创建静态库(persist.c)</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhiheng Tao</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
