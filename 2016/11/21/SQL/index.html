@@ -1,0 +1,604 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="mysql, sql等基本命令、语句">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL">
+<meta property="og:url" content="http://yoursite.com/2016/11/21/SQL/index.html">
+<meta property="og:site_name" content="Zhiheng Tao">
+<meta property="og:description" content="mysql, sql等基本命令、语句">
+<meta property="og:updated_time" content="2016-11-26T07:20:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SQL">
+<meta name="twitter:description" content="mysql, sql等基本命令、语句">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/21/SQL/"/>
+
+  <title> SQL | Zhiheng Tao </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Zhiheng Tao</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Every day is special</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                SQL
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-21T17:42:32+08:00" content="2016-11-21">
+              2016-11-21
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>mysql, sql等基本命令、语句</p>
+<a id="more"></a>
+<h1 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h1><h2 id="u57FA_u672C_u547D_u4EE4"><a href="#u57FA_u672C_u547D_u4EE4" class="headerlink" title="基本命令"></a>基本命令</h2><p>创建数据库<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; create database <span class="property">name</span>;</span><br></pre></td></tr></table></figure></p>
+<p>选择数据库<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">use</span> <span class="title">databasename</span>;</span><br></pre></td></tr></table></figure></p>
+<p>直接删除数据库，不提醒<br><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="built_in">drop</span> database <span class="built_in">name</span>;</span><br></pre></td></tr></table></figure></p>
+<p>删除数据库前，有提示。<br><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; mysqladmin <span class="built_in">drop</span> databasename</span><br></pre></td></tr></table></figure></p>
+<p>显示表<br><figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="built_in">show</span> <span class="built_in">tables</span>;</span><br></pre></td></tr></table></figure></p>
+<p>表的详细描述<br><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; describe tablename<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+<p>重命名表<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; alter <span class="keyword">table</span> t1 <span class="keyword">rename</span> t2;</span><br></pre></td></tr></table></figure></p>
+<p>显示当前mysql版本和当前日期<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="function"><span class="keyword">select</span> <span class="title">version</span>(<span class="params"></span>),current_date</span>;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="u4FEE_u6539_u5BC6_u7801"><a href="#u4FEE_u6539_u5BC6_u7801" class="headerlink" title="修改密码"></a>修改密码</h2><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; update <span class="keyword">user</span> <span class="title">set</span> <span class="variable">password=</span>password(”xueok654123″) where <span class="variable">user=</span>’root’;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="grant"><a href="#grant" class="headerlink" title="grant"></a>grant</h2><p>创建一个可以从任何地方连接服务器的一个完全的超级用户，但是必须使用一个口令something做这个<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; grant all privileges <span class="function_start"><span class="keyword">on</span></span> *.* <span class="keyword">to</span> user@localhost identified <span class="keyword">by</span> ’something’ <span class="keyword">with</span></span><br></pre></td></tr></table></figure></p>
+<p>增加新用户<br>格式：grant select on 数据库.* to 用户名@登录主机 identified by “密码”<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">GRANT</span> ALL <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> monty@localhost <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> ’something’ <span class="keyword">WITH</span> <span class="keyword">GRANT</span> <span class="keyword">OPTION</span>;</span></span><br><span class="line"><span class="operator"><span class="keyword">GRANT</span> ALL <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> monty@”%” <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> ’something’ <span class="keyword">WITH</span> <span class="keyword">GRANT</span> <span class="keyword">OPTION</span>;</span></span><br></pre></td></tr></table></figure></p>
+<p>删除授权：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; revoke all privileges <span class="function_start"><span class="keyword">on</span></span> *.* <span class="keyword">from</span> root@”%”;</span><br><span class="line">mysql&gt; delete <span class="keyword">from</span> user <span class="keyword">where</span> user=”root” <span class="keyword">and</span> host=”%”;</span><br><span class="line">mysql&gt; flush privileges;</span><br></pre></td></tr></table></figure></p>
+<p>创建一个用户(custom)在特定客户端(abc.com)登录，可访问特定数据库(test)<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql &gt;grant select, <span class="built_in">insert</span>, <span class="keyword">update</span>, <span class="built_in">delete</span>, create,<span class="keyword">drop</span> <span class="keyword">on</span> test.* <span class="keyword">to</span> custom@abc.<span class="keyword">com</span> identified by ‘ passwd’</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="mysqldump"><a href="#mysqldump" class="headerlink" title="mysqldump"></a>mysqldump</h2><p>备份数据库<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">shell</span>&gt; mysqldump -<span class="keyword">h</span> host -<span class="keyword">u</span> root -p dbname &gt;dbname_backup.sql</span><br></pre></td></tr></table></figure></p>
+<p>恢复数据库<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">shell</span>&gt; mysqladmin -<span class="keyword">h</span> myhost -<span class="keyword">u</span> root -p create dbname</span><br><span class="line"><span class="keyword">shell</span>&gt; mysqldump -<span class="keyword">h</span> host -<span class="keyword">u</span> root -p dbname &lt; dbname_backup.sql</span><br></pre></td></tr></table></figure></p>
+<p>如果只想卸出建表指令，则命令如下：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell&gt; mysqladmin -u root -<span class="tag">p</span> -d databasename &gt; <span class="tag">a</span>.sql</span><br></pre></td></tr></table></figure></p>
+<p>如果只想卸出插入数据的sql命令，而不需要建表命令，则命令如下：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell&gt; mysqladmin -u root -<span class="tag">p</span> -t databasename &gt; <span class="tag">a</span>.sql</span><br></pre></td></tr></table></figure></p>
+<p>那么如果我只想要数据，而不想要什么sql命令时<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">shell</span>&gt; mysqldump -T./ dbname tablename</span><br></pre></td></tr></table></figure></p>
+<p>其中，只有指定了-T参数才可以卸出纯文本文件，./表示卸出数据到当前目录。如果不指定tablename表，则将卸出整个数据库的数据。每个表会生成两个文件，一个为.sql文件，包含建表执行。另一个为.txt文件，只包含数据，且没有sql指令。</p>
+<hr>
+<h2 id="u5BFC_u5165_u6587_u4EF6_u67E5_u8BE2"><a href="#u5BFC_u5165_u6587_u4EF6_u67E5_u8BE2" class="headerlink" title="导入文件查询"></a>导入文件查询</h2><p>可将查询存储在一个文件中并告诉mysql从文件中读取查询而不是等待键盘输入。可利用外壳程序键入重定向实用程序来完成这项工作。<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql &gt; mysql -<span class="keyword">h</span> myhost -<span class="keyword">u</span> root -p database &lt; sql.txt</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="sql"><a href="#sql" class="headerlink" title="sql"></a>sql</h1><p>参考</p>
+<h2 id="u521B_u5EFA_u8868"><a href="#u521B_u5EFA_u8868" class="headerlink" title="创建表"></a>创建表</h2><h3 id="u8BED_u6CD5"><a href="#u8BED_u6CD5" class="headerlink" title="语法"></a>语法</h3><p>CREATE TABLE &lt;表名&gt;(&lt;列名&gt; &lt;数据类型&gt;[列级完整性约束条件]<br>                  [,&lt;列名&gt; &lt;数据类型&gt;[列级完整性约束条件]]…);</p>
+<h3 id="u793A_u4F8B"><a href="#u793A_u4F8B" class="headerlink" title="示例"></a>示例</h3><p>创建students表：<br>_id，主键，自增<br>name，最大长度20，非空<br>age，非空<br>gender，最大长度4，默认值boy<br>age满足大于0约束<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> students</span><br><span class="line">(</span><br><span class="line">  _id <span class="built_in">INT</span> AUTO_INCREMENT PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">  <span class="keyword">name</span> <span class="built_in">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  age <span class="built_in">INT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  gender <span class="built_in">VARCHAR</span>(<span class="number">4</span>) <span class="keyword">DEFAULT</span> <span class="string">'boy'</span>,</span><br><span class="line">  <span class="keyword">CHECK</span> (age&gt;<span class="number">0</span>)</span><br><span class="line">);</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="u5220_u9664_u8868"><a href="#u5220_u9664_u8868" class="headerlink" title="删除表"></a>删除表</h2><h3 id="u8BED_u6CD5-1"><a href="#u8BED_u6CD5-1" class="headerlink" title="语法"></a>语法</h3><p>DROP TABLE &lt;表名&gt;;</p>
+<h3 id="u793A_u4F8B-1"><a href="#u793A_u4F8B-1" class="headerlink" title="示例"></a>示例</h3><p>删除students表<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> students;</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="u6E05_u7A7A_u8868"><a href="#u6E05_u7A7A_u8868" class="headerlink" title="清空表"></a>清空表</h2><h3 id="u8BED_u6CD5-2"><a href="#u8BED_u6CD5-2" class="headerlink" title="语法"></a>语法</h3><p>TRUNCATE TABLE &lt;表名&gt;;</p>
+<h3 id="u793A_u4F8B-2"><a href="#u793A_u4F8B-2" class="headerlink" title="示例"></a>示例</h3><p>清空tudents表<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">TRUNCATE</span> <span class="keyword">TABLE</span> students;</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="u4FEE_u6539_u8868"><a href="#u4FEE_u6539_u8868" class="headerlink" title="修改表"></a>修改表</h2><h3 id="u8BED_u6CD5-3"><a href="#u8BED_u6CD5-3" class="headerlink" title="语法"></a>语法</h3><p>添加列<br>ALERT TABLE &lt;表名&gt; [ADD &lt;新列名&gt; &lt;数据类型&gt;[列级完整性约束条件]]<br>删除列<br>ALERT TABLE &lt;表名&gt; [DROP COLUMN &lt;列名&gt;]<br>修改列<br>ALERT TABLE &lt;表名&gt; [MODIFY COLUMN &lt;列名&gt; &lt;数据类型&gt; [列级完整性约束条件]]</p>
+<h3 id="u793A_u4F8B-3"><a href="#u793A_u4F8B-3" class="headerlink" title="示例"></a>示例</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//添加students表mail列</span></span><br><span class="line"><span class="function">ALERT TABLE studens ADD mail <span class="title">VARCHAR</span><span class="params">(<span class="number">20</span>)</span> <span class="literal">NULL</span></span>;</span><br><span class="line"><span class="comment">//删除students表mail列</span></span><br><span class="line">ALERT TABLE Student DROP COLUMN mail;</span><br><span class="line"><span class="comment">//修改students表mail列</span></span><br><span class="line"><span class="function">ALERT TABLE Student MODIFY mail <span class="title">VARCHAR</span><span class="params">(<span class="number">30</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="u67E5_u8BE2"><a href="#u67E5_u8BE2" class="headerlink" title="查询"></a>查询</h2><h3 id="u8BED_u6CD5-4"><a href="#u8BED_u6CD5-4" class="headerlink" title="语法"></a>语法</h3><p>SELECT [ALL|DISTINCT] &lt;目标列表达式&gt;[,&lt;目标列表达式&gt;]…<br>  FROM &lt;表名或视图名&gt;[,&lt;表名或视图名&gt;]…<br>  [WHERE &lt;条件表达式&gt;]<br>  [GROUP BY &lt;列名&gt; [HAVING &lt;条件表达式&gt;]]<br>  [ORDER BY &lt;列名&gt; [ASC|DESC]…]</p>
+<h3 id="u6CE8_u610F"><a href="#u6CE8_u610F" class="headerlink" title="注意"></a>注意</h3><blockquote>
+<ul>
+<li>SELECT、FROM是必须的</li>
+<li>HAVING子句只能与GROUP BY搭配使用。</li>
+</ul>
+</blockquote>
+<h3 id="u793A_u4F8B-4"><a href="#u793A_u4F8B-4" class="headerlink" title="示例"></a>示例</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> students</span><br><span class="line">  <span class="keyword">WHERE</span> sex=<span class="string">'boy'</span></span><br><span class="line">  <span class="keyword">GROUP</span> <span class="keyword">BY</span> age <span class="keyword">HAVING</span> <span class="keyword">AVG</span>(age) &gt; <span class="number">20</span></span><br><span class="line">  <span class="keyword">ORDER</span> <span class="keyword">BY</span> _id <span class="keyword">DESC</span></span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="u63D2_u5165"><a href="#u63D2_u5165" class="headerlink" title="插入"></a>插入</h2><h3 id="u8BED_u6CD5-5"><a href="#u8BED_u6CD5-5" class="headerlink" title="语法"></a>语法</h3><p>插入不存在的数据<br>INSERT INTO &lt;表名&gt; [(字段名[,字段名]…)] VALUES (常量[,常量]…);<br>将查询的数据插入到数据表中<br>INSERT INTO &lt;表名&gt; [(字段名[,字段名]…)] SELECT 查询语句;</p>
+<h3 id="u793A_u4F8B-5"><a href="#u793A_u4F8B-5" class="headerlink" title="示例"></a>示例</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//插入不存在的数据</span><br><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> students (<span class="keyword">name</span>,age,gender) <span class="keyword">VALUES</span> (<span class="string">'Lux'</span>,<span class="number">18</span>,<span class="string">'girl'</span>);</span></span><br><span class="line">//将查询的数据插入到数据表中</span><br><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> students (<span class="keyword">name</span>,age,gender)</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="keyword">name</span>,age,gender <span class="keyword">FROM</span> students2 <span class="keyword">WHERE</span> age&gt;<span class="number">17</span> <span class="keyword">AND</span> sex=<span class="string">'girl'</span>;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="u66F4_u65B0"><a href="#u66F4_u65B0" class="headerlink" title="更新"></a>更新</h2><h3 id="u8BED_u6CD5-6"><a href="#u8BED_u6CD5-6" class="headerlink" title="语法"></a>语法</h3><p>UPDATE &lt;表名&gt; SET 列名=值表达式[,列名=值表达式…]<br>  [WHERE 条件表达式]</p>
+<h3 id="u793A_u4F8B-6"><a href="#u793A_u4F8B-6" class="headerlink" title="示例"></a>示例</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">UPDATE</span> students <span class="keyword">SET</span> age= age+<span class="number">1</span> <span class="keyword">WHERE</span> _id&lt;<span class="number">10</span> <span class="keyword">AND</span> sex=<span class="string">'boy'</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="u5220_u9664"><a href="#u5220_u9664" class="headerlink" title="删除"></a>删除</h2><h3 id="u8BED_u6CD5-7"><a href="#u8BED_u6CD5-7" class="headerlink" title="语法"></a>语法</h3><p>DELETE FROM &lt;表名&gt; [WHERE 条件表达式]</p>
+<h3 id="u793A_u4F8B-7"><a href="#u793A_u4F8B-7" class="headerlink" title="示例"></a>示例</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> students <span class="keyword">WHERE</span> age&lt;<span class="number">10</span> <span class="keyword">AND</span> sex=<span class="string">'girl'</span>;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/10/C-Compile/" rel="next" title="C Compile">
+                <i class="fa fa-chevron-left"></i> C Compile
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Zhiheng Tao" />
+          <p class="site-author-name" itemprop="name">Zhiheng Tao</p>
+          <p class="site-description motion-element" itemprop="description">Smile every day</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql"><span class="nav-number">1.</span> <span class="nav-text">mysql</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u57FA_u672C_u547D_u4EE4"><span class="nav-number">1.1.</span> <span class="nav-text">基本命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4FEE_u6539_u5BC6_u7801"><span class="nav-number">1.2.</span> <span class="nav-text">修改密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grant"><span class="nav-number">1.3.</span> <span class="nav-text">grant</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysqldump"><span class="nav-number">1.4.</span> <span class="nav-text">mysqldump</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5BFC_u5165_u6587_u4EF6_u67E5_u8BE2"><span class="nav-number">1.5.</span> <span class="nav-text">导入文件查询</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sql"><span class="nav-number">2.</span> <span class="nav-text">sql</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u521B_u5EFA_u8868"><span class="nav-number">2.1.</span> <span class="nav-text">创建表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u8BED_u6CD5"><span class="nav-number">2.1.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u793A_u4F8B"><span class="nav-number">2.1.2.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5220_u9664_u8868"><span class="nav-number">2.2.</span> <span class="nav-text">删除表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u8BED_u6CD5-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u793A_u4F8B-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6E05_u7A7A_u8868"><span class="nav-number">2.3.</span> <span class="nav-text">清空表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u8BED_u6CD5-2"><span class="nav-number">2.3.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u793A_u4F8B-2"><span class="nav-number">2.3.2.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4FEE_u6539_u8868"><span class="nav-number">2.4.</span> <span class="nav-text">修改表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u8BED_u6CD5-3"><span class="nav-number">2.4.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u793A_u4F8B-3"><span class="nav-number">2.4.2.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u67E5_u8BE2"><span class="nav-number">2.5.</span> <span class="nav-text">查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u8BED_u6CD5-4"><span class="nav-number">2.5.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u6CE8_u610F"><span class="nav-number">2.5.2.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u793A_u4F8B-4"><span class="nav-number">2.5.3.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u63D2_u5165"><span class="nav-number">2.6.</span> <span class="nav-text">插入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u8BED_u6CD5-5"><span class="nav-number">2.6.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u793A_u4F8B-5"><span class="nav-number">2.6.2.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u66F4_u65B0"><span class="nav-number">2.7.</span> <span class="nav-text">更新</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u8BED_u6CD5-6"><span class="nav-number">2.7.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u793A_u4F8B-6"><span class="nav-number">2.7.2.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5220_u9664"><span class="nav-number">2.8.</span> <span class="nav-text">删除</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u8BED_u6CD5-7"><span class="nav-number">2.8.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u793A_u4F8B-7"><span class="nav-number">2.8.2.</span> <span class="nav-text">示例</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhiheng Tao</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/08/16/Java-Compile/index.html">
 <meta property="og:site_name" content="Zhiheng Tao">
 <meta property="og:description" content="javac,jar,java等基本命令">
-<meta property="og:updated_time" content="2016-10-10T08:47:50.000Z">
+<meta property="og:updated_time" content="2016-11-21T09:41:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java Compile">
 <meta name="twitter:description" content="javac,jar,java等基本命令">
@@ -332,11 +332,14 @@
 <ul>
 <li>基本用法：<br>java -Djava.ext.dirs=lib1/:lib2/ -classpath dependency1:dependency2 com.persist.Main argument1 argument2</li>
 <li>参数说明：<ul>
-<li>-Djava.ext.dirs=s=lib1/:lib2/　运行时外部依赖库目录，多个之间用:隔开（极端做法，将所有依赖放到java的lib目录下，或者将所有依赖打入jar包，就无需制定外部依赖）</li>
+<li>-Djava.ext.dirs=lib1/:lib2/　运行时外部依赖库目录，多个之间用:隔开（极端做法，将所有依赖放到java的lib目录下，或者将所有依赖打入jar包，就无需指定外部依赖）</li>
+<li>-DXXXX　可以制定许多运行参数，如-Djava.library.path</li>
 <li>-classpath dependency1:dependency2　运行时.class位置，可以是.jar, .zip, 目录，多个之间用:隔开，等价与(-cp) </li>
 <li>com.persist.Main　java程序指定将要运行的类，含有main方法</li>
 <li>argument1 argument2　main方法的参数</li>
 </ul>
+</li>
+<li>再说一点：<br>java使用JNI调用第三方动态库时，可以将动态库放在运行目录下或系统标准目录下。个人觉得更优雅(环境变量修改仅作用与本shell)的方式是：<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ export LD_LIBRARY_PATH=dynamic-folder:<span class="variable">$LD</span>_LIBRARY_PATH</span><br><span class="line">$ java ...</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </blockquote>
@@ -486,7 +489,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
