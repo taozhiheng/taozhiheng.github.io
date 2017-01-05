@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="notes," />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="Smile every day">
+<meta name="description" content="java调用python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Material Design UI">
-<meta property="og:url" content="http://yoursite.com/2016/05/08/Material-Design-UI/index.html">
+<meta property="og:title" content="Java-Python">
+<meta property="og:url" content="http://yoursite.com/2017/01/05/Java-Python/index.html">
 <meta property="og:site_name" content="Zhiheng Tao">
-<meta property="og:description" content="Smile every day">
-<meta property="og:updated_time" content="2016-05-08T04:36:08.000Z">
+<meta property="og:description" content="java调用python">
+<meta property="og:updated_time" content="2017-01-05T02:26:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Material Design UI">
-<meta name="twitter:description" content="Smile every day">
+<meta name="twitter:title" content="Java-Python">
+<meta name="twitter:description" content="java调用python">
 
 
 
@@ -114,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/05/08/Material-Design-UI/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/01/05/Java-Python/"/>
 
-  <title> Material Design UI | Zhiheng Tao </title>
+  <title> Java-Python | Zhiheng Tao </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -236,7 +236,7 @@
             
             
               
-                Material Design UI
+                Java-Python
               
             
           </h1>
@@ -248,8 +248,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-08T12:36:08+08:00" content="2016-05-08">
-              2016-05-08
+            <time itemprop="dateCreated" datetime="2017-01-05T09:42:36+08:00" content="2017-01-05">
+              2017-01-05
             </time>
           </span>
 
@@ -276,7 +276,19 @@
       
 
       
-        
+        <p>java调用python</p>
+<a id="more"></a>
+<h1 id="java_u8C03_u7528python"><a href="#java_u8C03_u7528python" class="headerlink" title="java调用python"></a>java调用python</h1><p>java调用python有多种方式，经过尝试，比较靠谱的一种方式是使用jpy库。使用前提条件如下: </p>
+<blockquote>
+<ul>
+<li>下载和编译jpy，得到三个文件: jpl.so, jpy.so, jpyconfig.properties<br>github地址: <a href="https://github.com/bcdev/jpy" target="_blank" rel="external">https://github.com/bcdev/jpy</a></li>
+<li>在java中设置环境变量jpy.config, 值为jpyconfig.properties的路径<br>jpyconfig.properties文件可以自己修改(个人觉得文件名也可以随意命名的^_^)，主要是两行值:<br>jpy.jpyLib = …/jpy.so<br>jpy.jdlLib = …/jdl.so<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">String </span>jpyConfig = <span class="string">".../jpyconfig.properties"</span></span><br><span class="line"><span class="label">System.setProperty</span>(<span class="string">"jpy.config"</span>, jpyConfig)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<h1 id="u52A0_u8F7Dpython_u811A_u672C"><a href="#u52A0_u8F7Dpython_u811A_u672C" class="headerlink" title="加载python脚本"></a>加载python脚本</h1><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//path为python脚本所在目录，目的是添加python搜索路径</span></span><br><span class="line">PyLib.startPython(path);</span><br><span class="line"><span class="comment">//module为python模块名，即脚本文件名去掉后缀，如： example.py, 模块名为example</span></span><br><span class="line">PyModule <span class="function"><span class="keyword">module</span> =</span> PyModule.importModule(<span class="function"><span class="keyword">module</span>);</span></span><br></pre></td></tr></table></figure>
+<h1 id="u8C03_u7528python_u65B9_u6CD5"><a href="#u8C03_u7528python_u65B9_u6CD5" class="headerlink" title="调用python方法"></a>调用python方法</h1><figure class="highlight d"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//调用python方法，传参, module即之前加载python脚本得到的PyModule</span></span><br><span class="line">PyObject o = <span class="keyword">module</span>.callMethod(<span class="string">"method_name"</span>, arg1, arg2)</span><br><span class="line"><span class="comment">//转换返回结果</span></span><br><span class="line"><span class="built_in">double</span> d = o.getDoubleValue();</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -296,22 +308,24 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/notes/" rel="tag">#notes</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/13/activity-lanchmode/" rel="next" title="activity lanchmode">
-                <i class="fa fa-chevron-left"></i> activity lanchmode
+              <a href="/2016/11/21/SQL/" rel="next" title="SQL">
+                <i class="fa fa-chevron-left"></i> SQL
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/16/Java-Compile/" rel="prev" title="Java Compile">
-                Java Compile <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -418,7 +432,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#java_u8C03_u7528python"><span class="nav-number">1.</span> <span class="nav-text">java调用python</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u52A0_u8F7Dpython_u811A_u672C"><span class="nav-number">2.</span> <span class="nav-text">加载python脚本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u8C03_u7528python_u65B9_u6CD5"><span class="nav-number">3.</span> <span class="nav-text">调用python方法</span></a></li></ol></div>
             
           </div>
         </section>
